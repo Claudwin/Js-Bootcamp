@@ -18,7 +18,17 @@ Hangman.prototype.getStatus = function () {
     
 }
     
+Hangman.prototype.getStatusMessage = function () {
     
+    if (this.status === 'playing') {
+        return `Guesses Left: ${game1.remainingGuesses}`
+    } else if (this.status === 'failed') {
+        return `You failed the word your is "${this.word.join('')}".`
+    } else {
+        return `Great work you solved the word`
+    }
+    
+}  
 
 
 Hangman.prototype.getPuzzle = function () {
