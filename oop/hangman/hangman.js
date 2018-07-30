@@ -5,7 +5,7 @@ class Hangman {
         this.guessedLetters = []
         this.status = 'playing'
     }
-    get puzzle() {
+    getStatus() {
         const completed = this.word.every((letter) => this.guessedLetters.includes(letter))
     
         if (this.remainingGuesses === 0) {
@@ -25,7 +25,7 @@ class Hangman {
             return `Great work you solved the word`
         }
     }
-    getPuzzle() {
+    get puzzle() {
         let puzzle = ''
 
         this.word.forEach((letter) => {
