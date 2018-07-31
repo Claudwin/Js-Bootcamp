@@ -15,19 +15,7 @@ window.addEventListener('keypress', function (e) {
     
 })
 
-//Making an HTTP Request
-const request = new XMLHttpRequest()
-request.addEventListener('readystatechange', (e) => {
-    if (e.target.readyState === 4 && e.target.status === 200) {
-        const data = JSON.parse(e.target.responseText)
-        console.log(data)
-    } else if (e.target.readyState === 4) {
-        console.log('An error has occured')
-    }
-    
-})
-request.open('GET' , 'http://puzzle.mead.io/puzzle?wordCount=2')
-request.send()
+
 
 const countryCode = 'CA'
 const countryRequest = new XMLHttpRequest()
@@ -42,6 +30,15 @@ countryRequest.addEventListener('readystatechange', (e) => {
                 }
      
 })
-
 countryRequest.open('GET', 'https://restcountries.eu/rest/v2/all')
 countryRequest.send()
+
+getPuzzle((error, puzzle) => {
+    if (error) {
+        console.log(`Error: ${error}`)
+    } else {
+        console.log(puzzle)
+    }
+})
+
+
