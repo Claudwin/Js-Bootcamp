@@ -1,14 +1,15 @@
 const data = {
-    location: [],
+    locations: [],
     get location() {
-        return 'this is a test'
+        return this._location
     },
     set location(value) {
-        this,this.location = value.trim()
-        this.location.push(this._location)
+        this._location = value.trim()
+        this.locations.push(this._location)
     }
 }
-//code that uses the data object
-data.location = 'edmonton'
 
-console.log(data.location)
+// code that uses the data object
+data.location = '  Philadelphia    '
+data.location = ' New York'
+console.log(data)

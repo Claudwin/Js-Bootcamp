@@ -17,21 +17,8 @@ window.addEventListener('keypress', function (e) {
 
 
 
-const countryCode = 'CA'
-const countryRequest = new XMLHttpRequest()
 
-countryRequest.addEventListener('readystatechange', (e) => {
-    if (e.target.status === 200 && e.target.readyState === 4) {
-        const data = JSON.parse(e.target.responseText)
-        const country = data.find((country) => country.alpha2Code === countryCode)
-        console.log(country.name)
-        } else if (e.target.readyState === 4) {
-                    console.log('An error has occured')
-                }
-     
-})
-countryRequest.open('GET', 'https://restcountries.eu/rest/v2/all')
-countryRequest.send()
+
 
 getPuzzle((error, puzzle) => {
     if (error) {
@@ -42,3 +29,10 @@ getPuzzle((error, puzzle) => {
 })
 
 
+getCountryDetails('NA', (error, country) => {
+    if (error) {
+        console.log(`Error: ${error}`)
+    } else {
+        console.log(`Country Name: ${country.name}`)
+    }
+})
