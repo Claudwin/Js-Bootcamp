@@ -15,24 +15,14 @@ window.addEventListener('keypress', function (e) {
     
 })
 
-
-
-
-
-
-getPuzzle((error, puzzle) => {
-    if (error) {
-        console.log(`Error: ${error}`)
-    } else {
-        console.log(puzzle)
-    }
+getPuzzle('3').then((puzzle) => {
+    console.log(puzzle)
+}, (err) => {
+    console.log(`Error: ${err}`)
 })
 
-
-getCountryDetails('NA', (error, country) => {
-    if (error) {
-        console.log(`Error: ${error}`)
-    } else {
-        console.log(`Country Name: ${country.name}`)
-    }
+getCountryDetails('NA').then((country) => {
+    console.log(`Country Name: ${country.name}`)
+}, (err) => {
+    console.log(`Error: ${err}`)
 })
